@@ -1,24 +1,24 @@
+minimumReleaseAgeExcludePrune: true
 minimumReleaseAgeExclude:
   - '@antfu/eslint-config@9.1.0'
   - eslint-plugin-yml@3.5.0
   - ovsx@1.0.2
 
-shellEmulator: true
-
 trustPolicy: no-downgrade
+shellEmulator: true
 
 packages:
   - extension
 
-allowBuilds:
-  '@vscode/vsce-sign': true
-  keytar: true
-
 # Security overrides for transitive deps whose parents have no patched range yet.
 # shortcut: drop each once @azure/identity allows msal-node 7.1 and micromark-extension-math allows katex 0.18.
 overrides:
-  '@azure/msal-node': '^7.1.0' # GHSA-xcx6-jx8p-x3h5, via @vscode/vsce > @azure/identity
-  katex: '^0.19.0' # GHSA-238p-pmpm-9mq7 (fixed 0.18.2; 0.18.11 is deprecated), via @antfu/eslint-config > @eslint/markdown
+  '@azure/msal-node': ^7.1.0 # GHSA-xcx6-jx8p-x3h5, via @vscode/vsce > @azure/identity
+  katex: ^0.19.0 # GHSA-238p-pmpm-9mq7 (fixed 0.18.2; 0.18.11 is deprecated), via @antfu/eslint-config > @eslint/markdown
+
+allowBuilds:
+  '@vscode/vsce-sign': true
+  keytar: true
 
 onlyBuiltDependencies:
   - '@vscode/vsce-sign'

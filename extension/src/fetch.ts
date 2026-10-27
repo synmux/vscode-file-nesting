@@ -35,7 +35,9 @@ export async function fetchAndUpdate(ctx: ExtensionContext, prompt = true) {
   const { patterns, updated } = await fetchLatest()
   let shouldUpdate = true
 
-  const oringalPatterns = { ...(config.get<object>('explorer.fileNesting.patterns') || {}) }
+  const oringalPatterns = {
+    ...(config.get<object>('explorer.fileNesting.patterns') || {}),
+  }
   delete oringalPatterns['//']
   // no change
   if (Object.keys(oringalPatterns).length > 0 && JSON.stringify(patterns) === JSON.stringify(oringalPatterns))

@@ -254,7 +254,12 @@ const frameworks = {
   'app.config.*': [],
   'artisan': ['server.php', 'webpack.mix.js'],
   'astro.config.*': [],
-  'gatsby-config.*': ['gatsby-browser.*', 'gatsby-node.*', 'gatsby-ssr.*', 'gatsby-transformer.*'],
+  'gatsby-config.*': [
+    'gatsby-browser.*',
+    'gatsby-node.*',
+    'gatsby-ssr.*',
+    'gatsby-transformer.*',
+  ],
   'next.config.*': ['next-env.d.ts', 'next-i18next.config.*'],
   'nuxt.config.*': ['.nuxtignore', '.nuxtrc', 'nuxt.schema.*'],
   'quasar.conf*': ['quasar.extensions.json'],
@@ -610,7 +615,10 @@ function toTitleCase(str) {
  */
 function addTitleCaseVariants(arr) {
   const upperCaseArr = arr.map(elm => toTitleCase(elm))
-  return [...arr, ...upperCaseArr]
+  return [
+    ...arr,
+    ...upperCaseArr,
+  ]
 }
 
 /**
@@ -619,7 +627,10 @@ function addTitleCaseVariants(arr) {
  */
 function addLowerCaseVariants(arr) {
   const lowerCaseArr = arr.map(elm => elm.toLowerCase())
-  return [...arr, ...lowerCaseArr]
+  return [
+    ...arr,
+    ...lowerCaseArr,
+  ]
 }
 
 const full = sortObject({
@@ -655,7 +666,13 @@ const full = sortObject({
   '*.razor': stringify(razor),
   'sanity.config.*': stringify(sanity),
   'AGENTS.md': stringify(agents),
-  ...Object.fromEntries(Object.entries(frameworks).map(([n, i]) => [n, stringify([...i, ...libraries])])),
+  ...Object.fromEntries(Object.entries(frameworks).map(([n, i]) => [
+    n,
+    stringify([
+      ...i,
+      ...libraries,
+    ]),
+  ])),
   ...svelteKitRouting,
   ...tauri,
 }, (a, b) => {
