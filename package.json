@@ -21,8 +21,8 @@
   "devDependencies": {
     "@antfu/eslint-config": "^10.0.0",
     "@antfu/ni": "^30.6.0",
-    "@types/vscode": "^1.145.0",
-    "@vscode/vsce": "4.1.0",
+    "@types/vscode": "^1.146.0",
+    "@vscode/vsce": "4.1.1",
     "bumpp": "^12.3.0",
     "eslint": "^10.14.0",
     "eslint-factory": "^0.1.2",
